@@ -8,6 +8,7 @@ public class Application {
         String carNamesStr;
         String[] carNames;
         String attemptCountStr;
+        int attemptCount;
 
         try {
             carNamesStr = InputView.readCarNames();
@@ -27,5 +28,9 @@ public class Application {
             System.out.println(e.getMessage());
             return;
         }
+
+        attemptCount = Integer.parseInt(attemptCountStr);
+
+        GameController game = new GameController(carNames, attemptCount);
     }
 }
