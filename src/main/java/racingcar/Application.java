@@ -38,5 +38,6 @@ public class Application {
         game.runGame();
 
         List<Car> winners = game.determineWinners();
+        OutputView.printWinners(winners);
     }
 }

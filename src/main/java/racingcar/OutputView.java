@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class OutputView {
@@ -22,5 +23,24 @@ public class OutputView {
 
     private static String getPositionHyphens(int position) {
         return ADVANCE_MARK.repeat(position);
+    }
+
+    private static final String FINAL_WINNER_FORMAT = "최종 우승자 : %s";
+    private static final String WINNER_DELIMITER = ", ";
+
+    public static void printWinners(List<Car> winners) {
+        String winnerNames = getWinnerNames(winners);
+
+        System.out.printf(FINAL_WINNER_FORMAT, winnerNames);
+    }
+
+    private static String getWinnerNames(List<Car> winners) {
+        List<String> names = new ArrayList<>();
+
+        for (Car winner : winners) {
+            names.add(winner.getName());
+        }
+
+        return String.join(WINNER_DELIMITER, names);
     }
 }
