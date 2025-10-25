@@ -20,4 +20,16 @@ public class GameController {
         }
         return newCars;
     }
+
+    public void runGame() {
+        for (int i = 0; i < attemptCount; i++) {
+            runOneRound();
+        }
+    }
+
+    private void runOneRound() {
+        for (Car car : cars) {
+            car.advance();
+        }
+    }
 }

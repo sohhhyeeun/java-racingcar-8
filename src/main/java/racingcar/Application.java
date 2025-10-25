@@ -30,7 +30,8 @@ public class Application {
         }
 
         attemptCount = Integer.parseInt(attemptCountStr);
-
         GameController game = new GameController(carNames, attemptCount);
+
+        game.runGame();
     }
 }
