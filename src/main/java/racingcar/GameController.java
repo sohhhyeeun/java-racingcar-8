@@ -35,4 +35,44 @@ public class GameController {
             car.advance();
         }
     }
+
+    public List<Car> determineWinners() {
+        int maxPosition = findMaxPosition();
+
+        return findSamePositionCars(maxPosition);
+    }
+
+    private int findMaxPosition() {
+        int maxPosition = 0;
+
+        for (Car car : cars) {
+            maxPosition = updateMaxPosition(maxPosition, car.getPosition());
+        }
+
+        return maxPosition;
+    }
+
+    private int updateMaxPosition(int maxPosition, int currentPosition) {
+        if (currentPosition > maxPosition) {
+            return currentPosition;
+        }
+
+        return maxPosition;
+    }
+
+    private List<Car> findSamePositionCars(int maxPosition) {
+        List<Car> winners = new ArrayList<>();
+
+        for (Car car : cars) {
+            addSamePositionCars(winners, car, maxPosition);
+        }
+
+        return winners;
+    }
+
+    private void addSamePositionCars(List<Car> winners, Car car, int maxPosition) {
+        if (car.getPosition() == maxPosition) {
+            winners.add(car);
+        }
+    }
 }
