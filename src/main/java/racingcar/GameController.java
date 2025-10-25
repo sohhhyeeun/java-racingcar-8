@@ -18,12 +18,15 @@ public class GameController {
         for (String carName : carNames) {
             newCars.add(new Car(carName));
         }
+
         return newCars;
     }
 
     public void runGame() {
         for (int i = 0; i < attemptCount; i++) {
             runOneRound();
+
+            OutputView.printRoundResult(this.cars);
         }
     }
 
