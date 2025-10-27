@@ -12,24 +12,15 @@ public class Application {
         String attemptCountStr;
         int attemptCount;
 
-        try {
-            carNamesStr = InputView.readCarNames();
-            carNames = Division.divideCarNames(carNamesStr);
 
-            Validation.validateCarNames(carNames);
-        } catch (IllegalArgumentException e) {
-            System.out.println("[ERROR] " +e.getMessage());
-            return;
-        }
+        carNamesStr = InputView.readCarNames();
+        carNames = Division.divideCarNames(carNamesStr);
+        Validation.validateCarNames(carNames);
 
-        try {
-            attemptCountStr = InputView.readAttemptCount();
 
-            Validation.validateAttemptCount(attemptCountStr);
-        } catch (IllegalArgumentException e) {
-            System.out.println("[ERROR] " +e.getMessage());
-            return;
-        }
+        attemptCountStr = InputView.readAttemptCount();
+        Validation.validateAttemptCount(attemptCountStr);
+
 
         attemptCount = Integer.parseInt(attemptCountStr);
         GameController game = new GameController(carNames, attemptCount);
