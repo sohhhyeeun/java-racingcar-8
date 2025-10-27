@@ -18,7 +18,7 @@ public class Application {
 
             Validation.validateCarNames(carNames);
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            System.out.println("[ERROR] " +e.getMessage());
             return;
         }
 
@@ -27,7 +27,7 @@ public class Application {
 
             Validation.validateAttemptCount(attemptCountStr);
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            System.out.println("[ERROR] " +e.getMessage());
             return;
         }
 
